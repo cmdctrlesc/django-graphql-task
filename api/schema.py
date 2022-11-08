@@ -1,9 +1,9 @@
-import graphene
-from graphene_django import DjangoObjectType, DjangoListField 
 from .models import Book 
-from graphene import relay
-from graphene_django.filter import DjangoFilterConnectionField
+
 from django.db.models import Q
+
+import graphene
+from graphene_django import DjangoObjectType
 
 
 class BookType(DjangoObjectType): 
