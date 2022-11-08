@@ -1,9 +1,8 @@
-from .models import Book 
-
-from django.db.models import Q
-
 import graphene
+from django.db.models import Q
 from graphene_django import DjangoObjectType
+
+from .models import Book
 
 
 class BookType(DjangoObjectType): 
@@ -31,7 +30,7 @@ class Query(graphene.ObjectType):
        if owned_by:            
             return Book.objects.filter(owned_by__id=owned_by)    
 
-    def resolve_search_books(self, info, query, **kwargs):
+    def resolve_search_books(self, info, query=None, **kwargs):
         if query:
             return Book.objects.filter(Q(title__icontains=query) | Q(author__name__icontains=query)
 )

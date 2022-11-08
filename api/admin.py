@@ -1,5 +1,6 @@
 from django.contrib import admin
-from api.models import Book, Author, User, Payment
+
+from api.models import Author, Book, Payment, User
 
 # Register your models here.
 
